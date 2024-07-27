@@ -1,13 +1,13 @@
 /**
  * Returns a promise that resolves with a success object or rejects with an error.
  * @param {boolean} success - A flag indicating whether the API call is successful.
- * @returns {Promise<{status: number, body: string}>} A promise that resolves with an object containing status and body or rejects with an error.
+ * @returns {Promise<{status: number, body: string}>}
  */
-function getFullResponseFromAPI(success) {
+export default function getFullResponseFromAPI(success) {
   return new Promise((resolve, reject) => {
     const obj = {
       status: 200,
-      body: 'Success'
+      body: 'Success',
     };
 
     if (success) {

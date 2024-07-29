@@ -9,5 +9,6 @@ export default function handleProfileSignup() {
     })))
     .then((userProfile) => {
       console.log(userProfile.image, userProfile.firstName, userProfile.lastName);
-    });
+    })
+    .catch(() => console.log('Signup system offline'));
 }

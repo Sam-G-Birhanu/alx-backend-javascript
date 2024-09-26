@@ -9,9 +9,15 @@ process.stdin.on('readable', () => {
   }
 });
 
+// Listen for the end of input
+process.stdin.on('end', () => {
+  console.log('This important software is now closing');
+});
+
 // Handle Ctrl + C (SIGINT) to exit the program
 process.on('SIGINT', function() {
   console.log('This important software is now closing');
   process.exit(); // Explicitly exit the program
 });
+
 

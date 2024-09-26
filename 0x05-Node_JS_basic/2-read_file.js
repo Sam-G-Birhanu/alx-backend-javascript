@@ -12,8 +12,6 @@ function countStudents(path) {
       throw new Error('Cannot load the database');
     }
 
-    // Extract the header (first line) and the remaining lines (students data)
-    const header = lines[0].split(',');
     const students = lines.slice(1);
 
     const totalStudents = students.length;

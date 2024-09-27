@@ -15,9 +15,7 @@ process.stdin.on('end', () => {
 });
 
 // Handle Ctrl + C (SIGINT) to exit the program
-process.on('SIGINT', function() {
+process.on('SIGINT', () => {
   console.log('This important software is now closing');
   process.exit(); // Explicitly exit the program
 });
-
-

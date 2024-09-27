@@ -14,19 +14,20 @@ app.get('/', (req, res) => {
 app.get('/students', async (req, res) => {
   try {
     const data = await students(process.argv[2]); // Call the students function
-
-    // Build the response
     const response = [
       'This is the list of our students',
       `Number of students: ${data.students.length}`,
       `Number of students in CS: ${data.csStudents.length}. List: ${data.csStudents.join(', ')}`,
       `Number of students in SWE: ${data.sweStudents.length}. List: ${data.sweStudents.join(', ')}`
-    ].join('\n'); // Join all lines into a single string
-
-    // Send the complete response
+    ].join('\n');
     res.status(200).send(response);
   } catch (err) {
-    res.status(500).send(err.message); // Send error message and set status code
+    // Check for a specific error to handle the case of a missing database
+    if (err.message.includes('ENOENT')) { // File not found error
+      res.status(500).send(`This is the list of our students\nCannot load the database`);
+    } else {
+      res.status(500).send(err.message); // General error message
+    }
   }
 });
 

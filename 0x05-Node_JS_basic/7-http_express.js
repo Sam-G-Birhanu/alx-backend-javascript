@@ -20,7 +20,7 @@ app.get('/students', async (req, res) => {
       `Number of students in CS: ${data.csStudents.length}. List: ${data.csStudents.join(', ')}`,
       `Number of students in SWE: ${data.sweStudents.length}. List: ${data.sweStudents.join(', ')}`
     ].join('\n');
-    res.status(200).send(response);
+    res.status(200).send(response); // Send the complete response at once
   } catch (err) {
     // Check for a specific error to handle the case of a missing database
     if (err.message.includes('ENOENT')) { // File not found error

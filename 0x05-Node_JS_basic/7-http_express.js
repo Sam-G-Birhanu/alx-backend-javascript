@@ -12,13 +12,19 @@ app.get('/', (req, res) => {
 
 // Route for the /students URL
 app.get('/students', async (req, res) => {
-  res.status(200).send('This is the list of our students\n');
   try {
     const data = await students(process.argv[2]); // Call the students function
-    res.write(`Number of students: ${data.students.length}\n`);
-    res.write(`Number of students in CS: ${data.csStudents.length}. List: ${data.csStudents.join(', ')}\n`);
-    res.write(`Number of students in SWE: ${data.sweStudents.length}. List: ${data.sweStudents.join(', ')}\n`);
-    res.end(); // End the response after writing all data
+
+    // Build the response
+    const response = [
+      'This is the list of our students',
+      `Number of students: ${data.students.length}`,
+      `Number of students in CS: ${data.csStudents.length}. List: ${data.csStudents.join(', ')}`,
+      `Number of students in SWE: ${data.sweStudents.length}. List: ${data.sweStudents.join(', ')}`
+    ].join('\n'); // Join all lines into a single string
+
+    // Send the complete response
+    res.status(200).send(response);
   } catch (err) {
     res.status(500).send(err.message); // Send error message and set status code
   }

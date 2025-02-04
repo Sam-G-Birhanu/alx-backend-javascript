@@ -1,0 +1,20 @@
+{
+  "name": "9-api",
+  "version": "1.0.0",
+  "description": "A simple API for learning basic integration testing in NodeJS.",
+  "main": "api.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha"
+  },
+  "author": "Alex O. Arévalo T. <Alexoat76> <3915@holbertonstudents.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.3",
+    "request": "^2.88.0",
+    "sinon": "^7.5.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "0x06-unittests_in_js",
+  "version": "1.0.0",
+  "description": "A project for learning the basics of Unittesting",
+  "author": "Alex O. Arévalo T. <Alexoat76> <3915@holbertonstudents.com>",
+  "license": "ISC",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha --exit"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "sinon": "^14.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
